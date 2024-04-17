@@ -1,6 +1,8 @@
 package com.carrasco.api.stream.example;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.stream.Stream;
 
 import static java.util.stream.DoubleStream.builder;
@@ -21,6 +23,17 @@ public class ExampleStream {
                 .add("Damian")
                 .build();
         name2.forEach(System.out::println);
+
+        List<String> nameGroup = new ArrayList<>();
+        nameGroup.add("Rum DMC");
+        nameGroup.add("Doble V");
+        nameGroup.add("El canto del loco");
+        nameGroup.add("CPV");
+
+        //Stream<String>name3 = nameGroup.stream();
+        //name3.forEach(System.out::println);
+
+        nameGroup.stream().forEach(System.out::println);
 
     }
 }
