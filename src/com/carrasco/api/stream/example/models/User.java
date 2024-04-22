@@ -1,11 +1,14 @@
 package com.carrasco.api.stream.example.models;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public class User {
 
     private String name;
     private String secondname;
+    private List<Invoices> invoices;
     private Integer id;
      private static int ultimoId;
 
@@ -13,6 +16,7 @@ public class User {
         this.name = name;
         this.secondname = secondname;
         this.id= ultimoId++;
+        this.invoices = new ArrayList<>();
     }
 
     public Integer getId() {
@@ -33,6 +37,15 @@ public class User {
 
     public void setSecondname(String secondname) {
         this.secondname = secondname;
+    }
+
+    public List<Invoices> getInvoices() {
+        return invoices;
+    }
+
+    public void addInvoice(Invoices invoice) {
+        this.invoices.add(invoice);
+        invoice.setUser(this);
     }
 
     @Override
